@@ -7,6 +7,7 @@ class QuestionsSlide extends Slide {
 		return <div className="slide" id="questionsSlide">
 			<div>
 				<h1>Questions?</h1>
+				<span>https://github.com/lukehansell-hx/isomorphic_demo</span>
 			</div>
 		</div>
 	}

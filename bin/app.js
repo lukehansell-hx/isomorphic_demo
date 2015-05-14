@@ -6,7 +6,7 @@ var resolveHash = require('when/keys').all;
 
 var DeckController = require('./controllers/DeckController.jsx');
 
-var ____Classg=React.Component;for(var ____Classg____Key in ____Classg){if(____Classg.hasOwnProperty(____Classg____Key)){App[____Classg____Key]=____Classg[____Classg____Key];}}var ____SuperProtoOf____Classg=____Classg===null?null:____Classg.prototype;App.prototype=Object.create(____SuperProtoOf____Classg);App.prototype.constructor=App;App.__superConstructor__=____Classg;function App(){"use strict";if(____Classg!==null){____Classg.apply(this,arguments);}}
+var ____Class0=React.Component;for(var ____Class0____Key in ____Class0){if(____Class0.hasOwnProperty(____Class0____Key)){App[____Class0____Key]=____Class0[____Class0____Key];}}var ____SuperProtoOf____Class0=____Class0===null?null:____Class0.prototype;App.prototype=Object.create(____SuperProtoOf____Class0);App.prototype.constructor=App;App.__superConstructor__=____Class0;function App(){"use strict";if(____Class0!==null){____Class0.apply(this,arguments);}}
 	
 	Object.defineProperty(App.prototype,"render",{writable:true,configurable:true,value:function() {"use strict";
 		return React.createElement(RouteHandler, React.__spread({},  this.props))
@@ -41,10 +41,10 @@ module.exports = function(url, options, callback){
 },{"./controllers/DeckController.jsx":10,"react":undefined,"react-router":36,"when/keys":56}],2:[function(require,module,exports){
 var React = require('react');
 
-var ____Classm=React.Component;for(var ____Classm____Key in ____Classm){if(____Classm.hasOwnProperty(____Classm____Key)){Slide[____Classm____Key]=____Classm[____Classm____Key];}}var ____SuperProtoOf____Classm=____Classm===null?null:____Classm.prototype;Slide.prototype=Object.create(____SuperProtoOf____Classm);Slide.prototype.constructor=Slide;Slide.__superConstructor__=____Classm;
+var ____Class6=React.Component;for(var ____Class6____Key in ____Class6){if(____Class6.hasOwnProperty(____Class6____Key)){Slide[____Class6____Key]=____Class6[____Class6____Key];}}var ____SuperProtoOf____Class6=____Class6===null?null:____Class6.prototype;Slide.prototype=Object.create(____SuperProtoOf____Class6);Slide.prototype.constructor=Slide;Slide.__superConstructor__=____Class6;
 	
 	function Slide(props, context) {"use strict";
-		____Classm.call(this,props);
+		____Class6.call(this,props);
 		
 		this.state = {
 			tweenStates: 0,
@@ -70,10 +70,10 @@ module.exports = Slide;
 var React = require('react');
 var $__0=    require('react-router'),RouteHandler=$__0.RouteHandler;
 
-var ____Classk=React.Component;for(var ____Classk____Key in ____Classk){if(____Classk.hasOwnProperty(____Classk____Key)){Deck[____Classk____Key]=____Classk[____Classk____Key];}}var ____SuperProtoOf____Classk=____Classk===null?null:____Classk.prototype;Deck.prototype=Object.create(____SuperProtoOf____Classk);Deck.prototype.constructor=Deck;Deck.__superConstructor__=____Classk;
+var ____Class4=React.Component;for(var ____Class4____Key in ____Class4){if(____Class4.hasOwnProperty(____Class4____Key)){Deck[____Class4____Key]=____Class4[____Class4____Key];}}var ____SuperProtoOf____Class4=____Class4===null?null:____Class4.prototype;Deck.prototype=Object.create(____SuperProtoOf____Class4);Deck.prototype.constructor=Deck;Deck.__superConstructor__=____Class4;
 	
 	function Deck(props, context) {"use strict";
-		____Classk.call(this,props);
+		____Class4.call(this,props);
 	}
 	
 	Object.defineProperty(Deck.prototype,"render",{writable:true,configurable:true,value:function() {"use strict";
@@ -171,7 +171,8 @@ for(var Slide____Key in Slide){if(Slide.hasOwnProperty(Slide____Key)){QuestionsS
 	Object.defineProperty(QuestionsSlide.prototype,"render",{writable:true,configurable:true,value:function() {"use strict";
 		return React.createElement("div", {className: "slide", id: "questionsSlide"}, 
 			React.createElement("div", null, 
-				React.createElement("h1", null, "Questions?")
+				React.createElement("h1", null, "Questions?"), 
+				React.createElement("span", null, "https://github.com/lukehansell-hx/isomorphic_demo")
 			)
 		)
 	}});
@@ -238,10 +239,10 @@ var DemoSlide = require('../components/slides/Demo.jsx');
 var TechSlide = require('../components/slides/Tech.jsx');
 var QuestionsSlide = require('../components/slides/Questions.jsx');
 
-var ____Classi=React.Component;for(var ____Classi____Key in ____Classi){if(____Classi.hasOwnProperty(____Classi____Key)){DeckController[____Classi____Key]=____Classi[____Classi____Key];}}var ____SuperProtoOf____Classi=____Classi===null?null:____Classi.prototype;DeckController.prototype=Object.create(____SuperProtoOf____Classi);DeckController.prototype.constructor=DeckController;DeckController.__superConstructor__=____Classi;
+var ____Class1=React.Component;for(var ____Class1____Key in ____Class1){if(____Class1.hasOwnProperty(____Class1____Key)){DeckController[____Class1____Key]=____Class1[____Class1____Key];}}var ____SuperProtoOf____Class1=____Class1===null?null:____Class1.prototype;DeckController.prototype=Object.create(____SuperProtoOf____Class1);DeckController.prototype.constructor=DeckController;DeckController.__superConstructor__=____Class1;
 	
 	function DeckController(props, context) {"use strict";
-		____Classi.call(this,props);
+		____Class1.call(this,props);
 	}
 	
 	Object.defineProperty(DeckController.prototype,"componentDidMount",{writable:true,configurable:true,value:function(){"use strict";
