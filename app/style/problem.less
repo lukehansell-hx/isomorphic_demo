@@ -1,0 +1,59 @@
+background-color: #0066CC;
+	
+#server {
+	opacity:0;
+}
+
+#client {
+	opacity:0;
+}
+	
+&.tween1 {
+	#server {
+		-webkit-animation: appear 1s forwards ease-in-out;
+	}
+}
+
+&.tween2 {
+	#client {
+		-webkit-animation: appear 1s forwards ease-in-out;
+	}
+}
+
+&.tween3 {
+	h1 {
+		opacity:1;
+		-webkit-animation: disappear 1s forwards ease-in-out;
+	}
+	#client, #server {
+		opacity:1;
+		-webkit-animation: growtext 1s forwards ease-in-out;
+	}
+}
+
+@-webkit-keyframes appear {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes disappear {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes growtext {
+	0% {
+		fontsize: 2em;
+	}
+	100% {
+		font-size: 4em;
+	}
+}

@@ -1,0 +1,25 @@
+{
+  "name": "presentation",
+  "version": "1.0.0",
+  "description": "isomorphic javascript presentation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luke Hansell <lukehansell@hotmail.com> (https://twitter.com/luke_hansell)",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^10.1.3",
+    "express": "^4.12.3",
+    "express-handlebars": "^2.0.1",
+    "gulp": "^3.8.11",
+    "gulp-less": "^3.0.3",
+    "gulp-nodemon": "^2.0.3",
+    "node-jsx": "^0.13.3",
+    "react": "^0.13.3",
+    "react-router": "^0.13.3",
+    "reactify": "^1.1.1",
+    "vinyl-source-stream": "^1.1.0",
+    "when": "^3.7.3"
+  }
+}
