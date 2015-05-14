@@ -9,7 +9,9 @@ Two birds, one stone.
 
 ## Running the demo
 `ln -s PATH/TO/DIR/bin/ public/js/` will set up symlink for js
+
 `mkdir public/style` for style directory
+
 `gulp` will do all of the magic for you
 
 then
