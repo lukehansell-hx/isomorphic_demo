@@ -7,6 +7,7 @@ var SolutionSlide = require('../components/slides/Solution.jsx');
 var DemoSlide = require('../components/slides/Demo.jsx');
 var TechSlide = require('../components/slides/Tech.jsx');
 var QuestionsSlide = require('../components/slides/Questions.jsx');
+var CodeSlide = require('../components/slides/Code.jsx');
 
 class DeckController extends React.Component {
 	
@@ -28,6 +29,7 @@ class DeckController extends React.Component {
 			<ProblemSlide />
 			<SolutionSlide />
 			<DemoSlide />
+			<CodeSlide />
 			<TechSlide />
 			<QuestionsSlide />
 		</Deck>

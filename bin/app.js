@@ -38,7 +38,7 @@ module.exports = function(url, options, callback){
   });
 };
 
-},{"./controllers/DeckController.jsx":10,"react":undefined,"react-router":36,"when/keys":56}],2:[function(require,module,exports){
+},{"./controllers/DeckController.jsx":11,"react":undefined,"react-router":37,"when/keys":57}],2:[function(require,module,exports){
 var React = require('react');
 
 var ____Class6=React.Component;for(var ____Class6____Key in ____Class6){if(____Class6.hasOwnProperty(____Class6____Key)){Slide[____Class6____Key]=____Class6[____Class6____Key];}}var ____SuperProtoOf____Class6=____Class6===null?null:____Class6.prototype;Slide.prototype=Object.create(____SuperProtoOf____Class6);Slide.prototype.constructor=Slide;Slide.__superConstructor__=____Class6;
@@ -89,7 +89,25 @@ var ____Class4=React.Component;for(var ____Class4____Key in ____Class4){if(____C
 
 module.exports = Deck;
 
-},{"react":undefined,"react-router":36}],4:[function(require,module,exports){
+},{"react":undefined,"react-router":37}],4:[function(require,module,exports){
+var React = require('react');
+var Slide = require('../Slide.jsx');
+
+for(var Slide____Key in Slide){if(Slide.hasOwnProperty(Slide____Key)){CodeSlide[Slide____Key]=Slide[Slide____Key];}}var ____SuperProtoOfSlide=Slide===null?null:Slide.prototype;CodeSlide.prototype=Object.create(____SuperProtoOfSlide);CodeSlide.prototype.constructor=CodeSlide;CodeSlide.__superConstructor__=Slide;function CodeSlide(){"use strict";if(Slide!==null){Slide.apply(this,arguments);}}
+	
+	Object.defineProperty(CodeSlide.prototype,"render",{writable:true,configurable:true,value:function() {"use strict";
+		return React.createElement("div", {className: "slide", id: "codeSlide"}, 
+			React.createElement("div", null, 
+				React.createElement("h1", null, "Code")
+			)
+		)
+	}});
+	
+
+
+module.exports = CodeSlide;
+
+},{"../Slide.jsx":2,"react":undefined}],5:[function(require,module,exports){
 var React = require('react');
 var Slide = require('../Slide.jsx');
 
@@ -109,7 +127,7 @@ for(var Slide____Key in Slide){if(Slide.hasOwnProperty(Slide____Key)){DemoSlide[
 
 module.exports = DemoSlide;
 
-},{"../Slide.jsx":2,"react":undefined}],5:[function(require,module,exports){
+},{"../Slide.jsx":2,"react":undefined}],6:[function(require,module,exports){
 var React = require('react');
 var Slide = require('../Slide.jsx');
 
@@ -128,7 +146,7 @@ for(var Slide____Key in Slide){if(Slide.hasOwnProperty(Slide____Key)){IntroSlide
 
 module.exports = IntroSlide;
 
-},{"../Slide.jsx":2,"react":undefined}],6:[function(require,module,exports){
+},{"../Slide.jsx":2,"react":undefined}],7:[function(require,module,exports){
 var React = require('react');
 var Slide = require('../Slide.jsx');
 
@@ -162,7 +180,7 @@ for(var Slide____Key in Slide){if(Slide.hasOwnProperty(Slide____Key)){ProblemSli
 
 module.exports = ProblemSlide;
 
-},{"../Slide.jsx":2,"react":undefined}],7:[function(require,module,exports){
+},{"../Slide.jsx":2,"react":undefined}],8:[function(require,module,exports){
 var React = require('react');
 var Slide = require('../Slide.jsx');
 
@@ -181,7 +199,7 @@ for(var Slide____Key in Slide){if(Slide.hasOwnProperty(Slide____Key)){QuestionsS
 
 module.exports = QuestionsSlide;
 
-},{"../Slide.jsx":2,"react":undefined}],8:[function(require,module,exports){
+},{"../Slide.jsx":2,"react":undefined}],9:[function(require,module,exports){
 var React = require('react');
 var Slide = require('../Slide.jsx');
 
@@ -200,7 +218,7 @@ for(var Slide____Key in Slide){if(Slide.hasOwnProperty(Slide____Key)){ProblemSli
 
 module.exports = ProblemSlide;
 
-},{"../Slide.jsx":2,"react":undefined}],9:[function(require,module,exports){
+},{"../Slide.jsx":2,"react":undefined}],10:[function(require,module,exports){
 var React = require('react');
 var Slide = require('../Slide.jsx');
 
@@ -228,7 +246,7 @@ for(var Slide____Key in Slide){if(Slide.hasOwnProperty(Slide____Key)){TechSlide[
 
 module.exports = TechSlide;
 
-},{"../Slide.jsx":2,"react":undefined}],10:[function(require,module,exports){
+},{"../Slide.jsx":2,"react":undefined}],11:[function(require,module,exports){
 var React = require('react');
 var Deck = require('../components/deck.jsx');
 
@@ -238,6 +256,7 @@ var SolutionSlide = require('../components/slides/Solution.jsx');
 var DemoSlide = require('../components/slides/Demo.jsx');
 var TechSlide = require('../components/slides/Tech.jsx');
 var QuestionsSlide = require('../components/slides/Questions.jsx');
+var CodeSlide = require('../components/slides/Code.jsx');
 
 var ____Class1=React.Component;for(var ____Class1____Key in ____Class1){if(____Class1.hasOwnProperty(____Class1____Key)){DeckController[____Class1____Key]=____Class1[____Class1____Key];}}var ____SuperProtoOf____Class1=____Class1===null?null:____Class1.prototype;DeckController.prototype=Object.create(____SuperProtoOf____Class1);DeckController.prototype.constructor=DeckController;DeckController.__superConstructor__=____Class1;
 	
@@ -259,6 +278,7 @@ var ____Class1=React.Component;for(var ____Class1____Key in ____Class1){if(____C
 			React.createElement(ProblemSlide, null), 
 			React.createElement(SolutionSlide, null), 
 			React.createElement(DemoSlide, null), 
+			React.createElement(CodeSlide, null), 
 			React.createElement(TechSlide, null), 
 			React.createElement(QuestionsSlide, null)
 		)
@@ -278,7 +298,7 @@ DeckController.contextTypes = {
 
 module.exports = DeckController;
 
-},{"../components/deck.jsx":3,"../components/slides/Demo.jsx":4,"../components/slides/Intro.jsx":5,"../components/slides/Problem.jsx":6,"../components/slides/Questions.jsx":7,"../components/slides/Solution.jsx":8,"../components/slides/Tech.jsx":9,"react":undefined}],11:[function(require,module,exports){
+},{"../components/deck.jsx":3,"../components/slides/Code.jsx":4,"../components/slides/Demo.jsx":5,"../components/slides/Intro.jsx":6,"../components/slides/Problem.jsx":7,"../components/slides/Questions.jsx":8,"../components/slides/Solution.jsx":9,"../components/slides/Tech.jsx":10,"react":undefined}],12:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -371,7 +391,7 @@ process.chdir = function (dir) {
 process.umask = function() { return 0; };
 
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 /**
  * Represents a cancellation caused by navigating away
  * before the previous transition has fully resolved.
@@ -382,7 +402,7 @@ function Cancellation() {}
 
 module.exports = Cancellation;
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 'use strict';
 
 var invariant = require('react/lib/invariant');
@@ -414,7 +434,7 @@ var History = {
 
 module.exports = History;
 
-},{"react/lib/ExecutionEnvironment":51,"react/lib/invariant":54}],14:[function(require,module,exports){
+},{"react/lib/ExecutionEnvironment":52,"react/lib/invariant":55}],15:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -491,7 +511,7 @@ var Match = (function () {
 
 module.exports = Match;
 
-},{"./PathUtils":16}],15:[function(require,module,exports){
+},{"./PathUtils":17}],16:[function(require,module,exports){
 'use strict';
 
 var PropTypes = require('./PropTypes');
@@ -563,7 +583,7 @@ var Navigation = {
 
 module.exports = Navigation;
 
-},{"./PropTypes":17}],16:[function(require,module,exports){
+},{"./PropTypes":18}],17:[function(require,module,exports){
 'use strict';
 
 var invariant = require('react/lib/invariant');
@@ -718,7 +738,7 @@ var PathUtils = {
 
 module.exports = PathUtils;
 
-},{"object-assign":45,"qs":46,"react/lib/invariant":54}],17:[function(require,module,exports){
+},{"object-assign":46,"qs":47,"react/lib/invariant":55}],18:[function(require,module,exports){
 'use strict';
 
 var assign = require('react/lib/Object.assign');
@@ -751,7 +771,7 @@ var PropTypes = assign({}, ReactPropTypes, {
 
 module.exports = PropTypes;
 
-},{"./Route":19,"react":undefined,"react/lib/Object.assign":52}],18:[function(require,module,exports){
+},{"./Route":20,"react":undefined,"react/lib/Object.assign":53}],19:[function(require,module,exports){
 /**
  * Encapsulates a redirect to the given route.
  */
@@ -765,7 +785,7 @@ function Redirect(to, params, query) {
 
 module.exports = Redirect;
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -967,7 +987,7 @@ var Route = (function () {
 
 module.exports = Route;
 
-},{"./PathUtils":16,"react/lib/Object.assign":52,"react/lib/invariant":54,"react/lib/warning":55}],20:[function(require,module,exports){
+},{"./PathUtils":17,"react/lib/Object.assign":53,"react/lib/invariant":55,"react/lib/warning":56}],21:[function(require,module,exports){
 'use strict';
 
 var invariant = require('react/lib/invariant');
@@ -1044,7 +1064,7 @@ var ScrollHistory = {
 
 module.exports = ScrollHistory;
 
-},{"./getWindowScrollPosition":35,"react/lib/ExecutionEnvironment":51,"react/lib/invariant":54}],21:[function(require,module,exports){
+},{"./getWindowScrollPosition":36,"react/lib/ExecutionEnvironment":52,"react/lib/invariant":55}],22:[function(require,module,exports){
 'use strict';
 
 var PropTypes = require('./PropTypes');
@@ -1120,7 +1140,7 @@ var State = {
 
 module.exports = State;
 
-},{"./PropTypes":17}],22:[function(require,module,exports){
+},{"./PropTypes":18}],23:[function(require,module,exports){
 /* jshint -W058 */
 
 'use strict';
@@ -1197,7 +1217,7 @@ Transition.to = function (transition, routes, params, query, callback) {
 
 module.exports = Transition;
 
-},{"./Cancellation":12,"./Redirect":18}],23:[function(require,module,exports){
+},{"./Cancellation":13,"./Redirect":19}],24:[function(require,module,exports){
 /**
  * Actions that modify the URL.
  */
@@ -1224,7 +1244,7 @@ var LocationActions = {
 
 module.exports = LocationActions;
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 'use strict';
 
 var LocationActions = require('../actions/LocationActions');
@@ -1255,7 +1275,7 @@ var ImitateBrowserBehavior = {
 
 module.exports = ImitateBrowserBehavior;
 
-},{"../actions/LocationActions":23}],25:[function(require,module,exports){
+},{"../actions/LocationActions":24}],26:[function(require,module,exports){
 /**
  * A scroll behavior that always scrolls to the top of the page
  * after a transition.
@@ -1272,7 +1292,7 @@ var ScrollToTopBehavior = {
 
 module.exports = ScrollToTopBehavior;
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -1312,7 +1332,7 @@ var ContextWrapper = (function (_React$Component) {
 
 module.exports = ContextWrapper;
 
-},{"react":undefined}],27:[function(require,module,exports){
+},{"react":undefined}],28:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -1361,7 +1381,7 @@ DefaultRoute.defaultProps = {
 
 module.exports = DefaultRoute;
 
-},{"../PropTypes":17,"./Route":31,"./RouteHandler":32}],28:[function(require,module,exports){
+},{"../PropTypes":18,"./Route":32,"./RouteHandler":33}],29:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -1498,7 +1518,7 @@ Link.defaultProps = {
 
 module.exports = Link;
 
-},{"../PropTypes":17,"react":undefined,"react/lib/Object.assign":52}],29:[function(require,module,exports){
+},{"../PropTypes":18,"react":undefined,"react/lib/Object.assign":53}],30:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -1548,7 +1568,7 @@ NotFoundRoute.defaultProps = {
 
 module.exports = NotFoundRoute;
 
-},{"../PropTypes":17,"./Route":31,"./RouteHandler":32}],30:[function(require,module,exports){
+},{"../PropTypes":18,"./Route":32,"./RouteHandler":33}],31:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -1593,7 +1613,7 @@ Redirect.defaultProps = {};
 
 module.exports = Redirect;
 
-},{"../PropTypes":17,"./Route":31}],31:[function(require,module,exports){
+},{"../PropTypes":18,"./Route":32}],32:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -1686,7 +1706,7 @@ Route.defaultProps = {
 
 module.exports = Route;
 
-},{"../PropTypes":17,"./RouteHandler":32,"react":undefined,"react/lib/invariant":54}],32:[function(require,module,exports){
+},{"../PropTypes":18,"./RouteHandler":33,"react":undefined,"react/lib/invariant":55}],33:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -1796,7 +1816,7 @@ RouteHandler.childContextTypes = {
 
 module.exports = RouteHandler;
 
-},{"../PropTypes":17,"./ContextWrapper":26,"react":undefined,"react/lib/Object.assign":52}],33:[function(require,module,exports){
+},{"../PropTypes":18,"./ContextWrapper":27,"react":undefined,"react/lib/Object.assign":53}],34:[function(require,module,exports){
 (function (process){
 /* jshint -W058 */
 'use strict';
@@ -2314,7 +2334,7 @@ function createRouter(options) {
 module.exports = createRouter;
 
 }).call(this,require('_process'))
-},{"./Cancellation":12,"./History":13,"./Match":14,"./PathUtils":16,"./PropTypes":17,"./Redirect":18,"./Route":19,"./ScrollHistory":20,"./Transition":22,"./actions/LocationActions":23,"./behaviors/ImitateBrowserBehavior":24,"./createRoutesFromReactChildren":34,"./isReactChildren":37,"./locations/HashLocation":38,"./locations/HistoryLocation":39,"./locations/RefreshLocation":40,"./locations/StaticLocation":41,"./supportsHistory":44,"_process":11,"react":undefined,"react/lib/ExecutionEnvironment":51,"react/lib/invariant":54,"react/lib/warning":55}],34:[function(require,module,exports){
+},{"./Cancellation":13,"./History":14,"./Match":15,"./PathUtils":17,"./PropTypes":18,"./Redirect":19,"./Route":20,"./ScrollHistory":21,"./Transition":23,"./actions/LocationActions":24,"./behaviors/ImitateBrowserBehavior":25,"./createRoutesFromReactChildren":35,"./isReactChildren":38,"./locations/HashLocation":39,"./locations/HistoryLocation":40,"./locations/RefreshLocation":41,"./locations/StaticLocation":42,"./supportsHistory":45,"_process":12,"react":undefined,"react/lib/ExecutionEnvironment":52,"react/lib/invariant":55,"react/lib/warning":56}],35:[function(require,module,exports){
 /* jshint -W084 */
 'use strict';
 
@@ -2397,7 +2417,7 @@ function createRoutesFromReactChildren(children) {
 
 module.exports = createRoutesFromReactChildren;
 
-},{"./Route":19,"./components/DefaultRoute":27,"./components/NotFoundRoute":29,"./components/Redirect":30,"react":undefined,"react/lib/Object.assign":52,"react/lib/warning":55}],35:[function(require,module,exports){
+},{"./Route":20,"./components/DefaultRoute":28,"./components/NotFoundRoute":30,"./components/Redirect":31,"react":undefined,"react/lib/Object.assign":53,"react/lib/warning":56}],36:[function(require,module,exports){
 'use strict';
 
 var invariant = require('react/lib/invariant');
@@ -2417,7 +2437,7 @@ function getWindowScrollPosition() {
 
 module.exports = getWindowScrollPosition;
 
-},{"react/lib/ExecutionEnvironment":51,"react/lib/invariant":54}],36:[function(require,module,exports){
+},{"react/lib/ExecutionEnvironment":52,"react/lib/invariant":55}],37:[function(require,module,exports){
 'use strict';
 
 exports.DefaultRoute = require('./components/DefaultRoute');
@@ -2450,7 +2470,7 @@ exports.createRoutesFromReactChildren = require('./createRoutesFromReactChildren
 exports.create = require('./createRouter');
 exports.run = require('./runRouter');
 
-},{"./History":13,"./Navigation":15,"./Route":19,"./State":21,"./behaviors/ImitateBrowserBehavior":24,"./behaviors/ScrollToTopBehavior":25,"./components/DefaultRoute":27,"./components/Link":28,"./components/NotFoundRoute":29,"./components/Redirect":30,"./components/Route":31,"./components/RouteHandler":32,"./createRouter":33,"./createRoutesFromReactChildren":34,"./locations/HashLocation":38,"./locations/HistoryLocation":39,"./locations/RefreshLocation":40,"./locations/StaticLocation":41,"./locations/TestLocation":42,"./runRouter":43}],37:[function(require,module,exports){
+},{"./History":14,"./Navigation":16,"./Route":20,"./State":22,"./behaviors/ImitateBrowserBehavior":25,"./behaviors/ScrollToTopBehavior":26,"./components/DefaultRoute":28,"./components/Link":29,"./components/NotFoundRoute":30,"./components/Redirect":31,"./components/Route":32,"./components/RouteHandler":33,"./createRouter":34,"./createRoutesFromReactChildren":35,"./locations/HashLocation":39,"./locations/HistoryLocation":40,"./locations/RefreshLocation":41,"./locations/StaticLocation":42,"./locations/TestLocation":43,"./runRouter":44}],38:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -2465,7 +2485,7 @@ function isReactChildren(object) {
 
 module.exports = isReactChildren;
 
-},{"react":undefined}],38:[function(require,module,exports){
+},{"react":undefined}],39:[function(require,module,exports){
 'use strict';
 
 var LocationActions = require('../actions/LocationActions');
@@ -2578,7 +2598,7 @@ var HashLocation = {
 
 module.exports = HashLocation;
 
-},{"../History":13,"../actions/LocationActions":23}],39:[function(require,module,exports){
+},{"../History":14,"../actions/LocationActions":24}],40:[function(require,module,exports){
 'use strict';
 
 var LocationActions = require('../actions/LocationActions');
@@ -2666,7 +2686,7 @@ var HistoryLocation = {
 
 module.exports = HistoryLocation;
 
-},{"../History":13,"../actions/LocationActions":23}],40:[function(require,module,exports){
+},{"../History":14,"../actions/LocationActions":24}],41:[function(require,module,exports){
 'use strict';
 
 var HistoryLocation = require('./HistoryLocation');
@@ -2699,7 +2719,7 @@ var RefreshLocation = {
 
 module.exports = RefreshLocation;
 
-},{"../History":13,"./HistoryLocation":39}],41:[function(require,module,exports){
+},{"../History":14,"./HistoryLocation":40}],42:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -2750,7 +2770,7 @@ StaticLocation.prototype.pop = throwCannotModify;
 
 module.exports = StaticLocation;
 
-},{"react/lib/invariant":54}],42:[function(require,module,exports){
+},{"react/lib/invariant":55}],43:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -2846,7 +2866,7 @@ var TestLocation = (function () {
 
 module.exports = TestLocation;
 
-},{"../History":13,"../actions/LocationActions":23,"react/lib/invariant":54}],43:[function(require,module,exports){
+},{"../History":14,"../actions/LocationActions":24,"react/lib/invariant":55}],44:[function(require,module,exports){
 'use strict';
 
 var createRouter = require('./createRouter');
@@ -2898,7 +2918,7 @@ function runRouter(routes, location, callback) {
 
 module.exports = runRouter;
 
-},{"./createRouter":33}],44:[function(require,module,exports){
+},{"./createRouter":34}],45:[function(require,module,exports){
 'use strict';
 
 function supportsHistory() {
@@ -2916,7 +2936,7 @@ function supportsHistory() {
 
 module.exports = supportsHistory;
 
-},{}],45:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 'use strict';
 
 function ToObject(val) {
@@ -2945,11 +2965,11 @@ module.exports = Object.assign || function (target, source) {
 };
 
 
-},{}],46:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 module.exports = require('./lib/');
 
 
-},{"./lib/":47}],47:[function(require,module,exports){
+},{"./lib/":48}],48:[function(require,module,exports){
 // Load modules
 
 var Stringify = require('./stringify');
@@ -2967,7 +2987,7 @@ module.exports = {
 };
 
 
-},{"./parse":48,"./stringify":49}],48:[function(require,module,exports){
+},{"./parse":49,"./stringify":50}],49:[function(require,module,exports){
 // Load modules
 
 var Utils = require('./utils');
@@ -3131,7 +3151,7 @@ module.exports = function (str, options) {
 };
 
 
-},{"./utils":50}],49:[function(require,module,exports){
+},{"./utils":51}],50:[function(require,module,exports){
 // Load modules
 
 var Utils = require('./utils');
@@ -3231,7 +3251,7 @@ module.exports = function (obj, options) {
 };
 
 
-},{"./utils":50}],50:[function(require,module,exports){
+},{"./utils":51}],51:[function(require,module,exports){
 // Load modules
 
 
@@ -3366,7 +3386,7 @@ exports.isBuffer = function (obj) {
 };
 
 
-},{}],51:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -3411,7 +3431,7 @@ var ExecutionEnvironment = {
 module.exports = ExecutionEnvironment;
 
 
-},{}],52:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -3461,7 +3481,7 @@ function assign(target, sources) {
 module.exports = assign;
 
 
-},{}],53:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -3496,7 +3516,7 @@ emptyFunction.thatReturnsArgument = function(arg) { return arg; };
 module.exports = emptyFunction;
 
 
-},{}],54:[function(require,module,exports){
+},{}],55:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -3554,7 +3574,7 @@ module.exports = invariant;
 
 
 }).call(this,require('_process'))
-},{"_process":11}],55:[function(require,module,exports){
+},{"_process":12}],56:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -3618,7 +3638,7 @@ module.exports = warning;
 
 
 }).call(this,require('_process'))
-},{"./emptyFunction":53,"_process":11}],56:[function(require,module,exports){
+},{"./emptyFunction":54,"_process":12}],57:[function(require,module,exports){
 /** @license MIT License (c) copyright 2011-2013 original author or authors */
 
 /**
@@ -3701,7 +3721,7 @@ define(function(require) {
 })(typeof define === 'function' && define.amd ? define : function (factory) { module.exports = factory(require); });
 
 
-},{"./when":74}],57:[function(require,module,exports){
+},{"./when":75}],58:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -3721,7 +3741,7 @@ define(function (require) {
 })(typeof define === 'function' && define.amd ? define : function (factory) { module.exports = factory(require); });
 
 
-},{"./Scheduler":58,"./env":70,"./makePromise":72}],58:[function(require,module,exports){
+},{"./Scheduler":59,"./env":71,"./makePromise":73}],59:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -3804,7 +3824,7 @@ define(function() {
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(); }));
 
 
-},{}],59:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -3833,7 +3853,7 @@ define(function() {
 });
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(); }));
 
-},{}],60:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -3891,7 +3911,7 @@ define(function() {
 
 
 
-},{}],61:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -4183,7 +4203,7 @@ define(function(require) {
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(require); }));
 
 
-},{"../apply":60,"../state":73}],62:[function(require,module,exports){
+},{"../apply":61,"../state":74}],63:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -4346,7 +4366,7 @@ define(function() {
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(); }));
 
 
-},{}],63:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -4376,7 +4396,7 @@ define(function() {
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(); }));
 
 
-},{}],64:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -4399,7 +4419,7 @@ define(function(require) {
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(require); }));
 
 
-},{"../state":73}],65:[function(require,module,exports){
+},{"../state":74}],66:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -4467,7 +4487,7 @@ define(function() {
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(); }));
 
 
-},{}],66:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -4494,7 +4514,7 @@ define(function() {
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(); }));
 
 
-},{}],67:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -4575,7 +4595,7 @@ define(function(require) {
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(require); }));
 
 
-},{"../TimeoutError":59,"../env":70}],68:[function(require,module,exports){
+},{"../TimeoutError":60,"../env":71}],69:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -4664,7 +4684,7 @@ define(function(require) {
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(require); }));
 
 
-},{"../env":70,"../format":71}],69:[function(require,module,exports){
+},{"../env":71,"../format":72}],70:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -4705,7 +4725,7 @@ define(function() {
 
 
 
-},{}],70:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 (function (process){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
@@ -4783,7 +4803,7 @@ define(function(require) {
 
 
 }).call(this,require('_process'))
-},{"_process":11}],71:[function(require,module,exports){
+},{"_process":12}],72:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -4842,7 +4862,7 @@ define(function() {
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(); }));
 
 
-},{}],72:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 (function (process){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
@@ -5774,7 +5794,7 @@ define(function() {
 
 
 }).call(this,require('_process'))
-},{"_process":11}],73:[function(require,module,exports){
+},{"_process":12}],74:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -5812,7 +5832,7 @@ define(function() {
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(); }));
 
 
-},{}],74:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 
 /**
@@ -6043,5 +6063,5 @@ define(function (require) {
 })(typeof define === 'function' && define.amd ? define : function (factory) { module.exports = factory(require); });
 
 
-},{"./lib/Promise":57,"./lib/TimeoutError":59,"./lib/apply":60,"./lib/decorators/array":61,"./lib/decorators/flow":62,"./lib/decorators/fold":63,"./lib/decorators/inspect":64,"./lib/decorators/iterate":65,"./lib/decorators/progress":66,"./lib/decorators/timed":67,"./lib/decorators/unhandledRejection":68,"./lib/decorators/with":69}]},{},[1])(1)
+},{"./lib/Promise":58,"./lib/TimeoutError":60,"./lib/apply":61,"./lib/decorators/array":62,"./lib/decorators/flow":63,"./lib/decorators/fold":64,"./lib/decorators/inspect":65,"./lib/decorators/iterate":66,"./lib/decorators/progress":67,"./lib/decorators/timed":68,"./lib/decorators/unhandledRejection":69,"./lib/decorators/with":70}]},{},[1])(1)
 });
