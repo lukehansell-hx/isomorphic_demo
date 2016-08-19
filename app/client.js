@@ -1,6 +1,6 @@
 var React = require('react');
 var Router = require('react-router');
-var appRouter = require('./app.jsx');
+var appRouter = require('./app');
 
 window.app = {
   initialize: function() {

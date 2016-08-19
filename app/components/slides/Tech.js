@@ -1,8 +1,8 @@
 var React = require('react');
-var Slide = require('../Slide.jsx');
+var Slide = require('../Slide');
 
 class TechSlide extends Slide {
-	
+
 	render() {
 		return <div className="slide" id="techSlide">
 			<div>
@@ -20,7 +20,7 @@ class TechSlide extends Slide {
 			</div>
 		</div>
 	}
-	
+
 }
 
 module.exports = TechSlide;

@@ -3,14 +3,14 @@ var Router = require('react-router');
 var { RouteHandler, Route } = Router;
 var resolveHash = require('when/keys').all;
 
-var DeckController = require('./controllers/DeckController.jsx');
+var DeckController = require('./controllers/DeckController');
 
 class App extends React.Component {
-	
+
 	render() {
 		return <RouteHandler {...this.props} />
 	}
-	
+
 }
 
 var routes = ( <Route path="/" handler={App}>

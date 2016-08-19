@@ -1,25 +1,36 @@
 {
   "name": "presentation",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "isomorphic javascript presentation",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parallelshell 'npm run server' 'npm run client' 'npm run style:watch'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js",
+    "client": "webpack-dev-server",
+    "style": "lessc ./app/style/main.less public/style/main.css",
+    "style:watch": "watch 'npm run style' app/style"
   },
   "author": "Luke Hansell <lukehansell@hotmail.com> (https://twitter.com/luke_hansell)",
   "license": "ISC",
   "dependencies": {
-    "browserify": "^10.1.3",
     "express": "^4.12.3",
     "express-handlebars": "^2.0.1",
-    "gulp": "^3.8.11",
-    "gulp-less": "^3.0.3",
-    "gulp-nodemon": "^2.0.3",
     "node-jsx": "^0.13.3",
     "react": "^0.13.3",
     "react-router": "^0.13.3",
-    "reactify": "^1.1.1",
-    "vinyl-source-stream": "^1.1.0",
     "when": "^3.7.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.13.2",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "less": "^2.7.1",
+    "nodemon": "^1.10.2",
+    "parallelshell": "^2.0.0",
+    "watch": "^0.19.2",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.14.1"
   }
 }
