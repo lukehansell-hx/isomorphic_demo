@@ -1,5 +1,6 @@
 node_modules/
 .idea/
-public/js/
-public/style/
+public/app.css
+public/app.js
 *.log
+server.bundle.js

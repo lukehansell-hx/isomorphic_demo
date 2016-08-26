@@ -1,13 +1,9 @@
-var React = require('react');
-var Router = require('react-router');
-var appRouter = require('./app');
+const React = require('react');
+const { render } = require('react-dom')
+const { Router, browserHistory } = require('react-router');
+const routes = require('./routes');
 
-window.app = {
-  initialize: function() {
-    appRouter( Router.HistoryLocation, {}, (err, data, Handler) => {
-      React.render(<Handler data={data} />, document.getElementById('root'));
-    });
-  }
-};
-
-window.app.initialize();
+render(
+  <Router routes={routes} history={browserHistory} />,
+  document.getElementById('root')
+);
