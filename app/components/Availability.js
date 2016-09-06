@@ -17,7 +17,7 @@ class Availability extends React.Component {
         productType: 'carparks'
       }), (err, result) => {
         if(err) return reject(err)
-        resolve(result.products)
+        resolve(result.products.map(product => product.data))
       })
     })
   }
@@ -31,17 +31,12 @@ class Availability extends React.Component {
   }
 
   componentDidMount() {
-    console.log('calling componentDidMount')
-    console.log(this.state.productsLoaded)
-    // if(!this.state.productsLoaded) {
+    if(!this.state.productsLoaded) {
       this.loadData()
-    // }
+    }
   }
 
   componentWillReceiveProps() {
-    console.log('calling componentWillReceiveProps')
-    console.log(this.state.productsLoaded)
-
     this.loadData()
   }
 
@@ -68,15 +63,14 @@ class Availability extends React.Component {
       </div>
     }
 
-    console.log(this.state);
     return <div>
       {this.state.products.filter( product => {
         if(!product.images) return false
         if(product.images.length === 0 ) return false
         return true;
       }).map( product => {
-        return <Tile image={product.images[0]} key={product.data.code}>
-          <h2>{product.data.name}</h2>
+        return <Tile image={product.images[0]} key={product.code}>
+          <h2>{product.name}</h2>
         </Tile>
       })}
     </div>

@@ -31,7 +31,7 @@ app.get('*', function(req, res){
       res.redirect(redirect.pathname + redirect.search)
     } else if (props) {
       // if we got props then we matched a route and can render
-      
+
       const dataFetchingMethods = props.components.map(component =>
         component.fetchData ?
         component.fetchData(props.location.query) :
@@ -52,7 +52,7 @@ app.get('*', function(req, res){
           data: JSON.stringify(contextData)
          });
       }, err => {
-        console.log('error', err)
+        console.log(err)
       });
 
     } else {
