@@ -26,15 +26,12 @@ module.exports = {
       test: /\.js$/,
       exclude: /node_modules/,
       loader: 'babel-loader'
-    },
-    // {
-    //   test: /\.html$/,
-    //   exclude: /node_modules/,
-    //   loader: 'html-loader'
-    // },
-    {
+    }, {
       test: /\.less/,
       loader: 'ignore-loader'
+    }, {
+      test: /\.json$/,
+      loader: 'json-loader'
     }]
   }
 };

@@ -2,8 +2,11 @@
 <head>
 	<title>Isomorphic Presentation</title>
   <link rel="stylesheet" href="/app.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 </head>
 <body>
   <div id="root"><%- content %></div>
+  <script id="data">var data = <%- data %></script>
+  <script src="https://www.promisejs.org/polyfills/promise-done-7.0.4.min.js"></script>
   <script type="text/javascript" src="/app.js"></script>
 </body>

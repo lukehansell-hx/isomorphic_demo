@@ -4,9 +4,9 @@ const { match, RouterContext } = require('react-router');
 const routes = require('./routes');
 const path = require('path');
 
-// const htmlTemplate = require('../public/index.html');
-
 const express = require('express');
+
+const PreFetchContext = require('./components/PreFetchContext');
 
 const app = module.exports = express();
 
@@ -31,8 +31,30 @@ app.get('*', function(req, res){
       res.redirect(redirect.pathname + redirect.search)
     } else if (props) {
       // if we got props then we matched a route and can render
-      const content = renderToString(<RouterContext {...props}/>)
-      res.render('index', { content });
+      
+      const dataFetchingMethods = props.components.map(component =>
+        component.fetchData ?
+        component.fetchData(props.location.query) :
+        new Promise(resolve => resolve()))
+
+      Promise.all(dataFetchingMethods).then( data => {
+        const contextData = {};
+        data.forEach( (a, index) => {
+          contextData[props.components[index].name || index] = a
+        })
+        const content = renderToString(
+          <PreFetchContext {...contextData}>
+            <RouterContext {...props}/>
+          </PreFetchContext>
+        )
+        res.render('index', {
+          content,
+          data: JSON.stringify(contextData)
+         });
+      }, err => {
+        console.log('error', err)
+      });
+
     } else {
       // no errors, no redirect, we just didn't match anything
       res.status(404).send('Not Found')
