@@ -1,5 +1,6 @@
 node_modules/
 .idea/
+.tmp
 public/app.css
 public/app.js
 *.log
