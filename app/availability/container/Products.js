@@ -10,7 +10,7 @@ const TileView = require('../presentation/TileView');
 
 const TOKEN = 'ef008a98-9434-11e1-af41-123143040224'
 
-class Availability extends React.Component {
+class Products extends React.Component {
   static fetchData(props) {
     return new Promise((resolve, reject) => {
       const sdk = new HapiSDK(TOKEN)
@@ -44,7 +44,7 @@ class Availability extends React.Component {
 
   loadData() {
     const { to, from, location } = this.props.location.query
-    Availability.fetchData({
+    Products.fetchData({
       to,
       from,
       location
@@ -79,8 +79,8 @@ class Availability extends React.Component {
   }
 }
 
-Availability.contextTypes = {
+Products.contextTypes = {
   preFetchedData: React.PropTypes.object
 }
 
-module.exports = Availability
+module.exports = Products
