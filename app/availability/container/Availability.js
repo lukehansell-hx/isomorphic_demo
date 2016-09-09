@@ -1,10 +1,12 @@
 const React = require('react')
 const HapiSDK = require('hapi-sdk')
-const { Tile } = require('@holidayextras/ui-toolkit')
 const _ = {
   assign: require('lodash/assign'),
   omit: require('lodash/omit')
 }
+
+const Loading = require('../../shared/presentation/Loading');
+const TileView = require('../presentation/TileView');
 
 const TOKEN = 'ef008a98-9434-11e1-af41-123143040224'
 
@@ -58,22 +60,22 @@ class Availability extends React.Component {
 
   render() {
     if(!this.state.productsLoaded) {
-      return <div>
-        <p>Loading...</p>
-      </div>
+      return <Loading />
     }
 
-    return <div>
-      {this.state.products.filter( product => {
-        if(!product.images) return false
-        if(product.images.length === 0 ) return false
-        return true;
-      }).map( product => {
-        return <Tile image={product.images[0]} key={product.code}>
-          <h2>{product.name}</h2>
-        </Tile>
-      })}
-    </div>
+    const products = this.state.products.filter( product => {
+      if(!product.images) return false
+      if(product.images.length === 0 ) return false
+      return true;
+    }).map( product => {
+      return {
+        image: product.images[0],
+        name: product.name,
+        code: product.code
+      }
+    })
+
+    return <TileView products={products} />
   }
 }
 
