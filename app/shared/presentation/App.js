@@ -1,6 +1,6 @@
 const React = require('react')
 
-require('../style/main.less');
+require('../style/App.less');
 
 class App extends React.Component {
   render() {

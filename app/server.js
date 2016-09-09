@@ -6,7 +6,7 @@ const path = require('path');
 
 const express = require('express');
 
-const PreFetchContext = require('./components/PreFetchContext');
+const PreFetchContext = require('./shared/container/PreFetchContext');
 
 const app = module.exports = express();
 
