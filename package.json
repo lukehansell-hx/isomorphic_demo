@@ -59,6 +59,8 @@
     "parallelshell": "^2.0.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
+    "sinon": "^1.17.5",
+    "sinon-chai": "^2.8.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "watch": "^0.19.2",
