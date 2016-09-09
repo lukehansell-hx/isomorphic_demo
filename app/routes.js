@@ -1,7 +1,7 @@
 const React = require('react');
 const { Route, IndexRoute } = require('react-router');
 const App = require('./shared/presentation/App');
-const Products = require('./availability/container/Products');
+import Products from './availability/container/Products';
 const Search = require('./search/presentation/Search');
 
 module.exports = (

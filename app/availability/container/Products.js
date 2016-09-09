@@ -5,75 +5,55 @@ const _ = {
   omit: require('lodash/omit')
 }
 
+import { connect } from 'react-redux'
+import { fetchProducts } from '../action/products'
+
 const Loading = require('../../shared/presentation/Loading');
 const TileView = require('../presentation/TileView');
 
 const TOKEN = 'ef008a98-9434-11e1-af41-123143040224'
 
 class Products extends React.Component {
-  static fetchData(props) {
-    return new Promise((resolve, reject) => {
-      const sdk = new HapiSDK(TOKEN)
-
-      sdk.product.availabilitySearch(_.assign(props, {
-        productType: 'carparks'
-      }), (err, result) => {
-        if(err) return reject(err)
-        resolve(result.products.map(product => product.data))
-      })
-    })
-  }
 
   constructor(props, context) {
     super(props, context)
-    this.state = {
-      products: context.preFetchedData.Availability,
-      productsLoaded: !!context.preFetchedData.Availability
-    }
   }
 
-  componentDidMount() {
-    if(!this.state.productsLoaded) {
-      this.loadData()
-    }
-  }
+  componentWillMount() {
+    const { dispatch, location, to, from, agent} = this.props
 
-  componentWillReceiveProps() {
-    this.loadData()
-  }
-
-  loadData() {
-    const { to, from, location } = this.props.location.query
-    Products.fetchData({
+    dispatch(fetchProducts({
       to,
       from,
-      location
-    }).done(( products ) => {
-      this.setState({
-        products,
-        productsLoaded: true
-      })
-    }, (err) => {
-      console.error(err)
-    })
+      location,
+      agent
+    }))
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { dispatch, location, to, from, agent} = nextProps
+
+    if(
+      location === this.props.location &&
+      to === this.props.to &&
+      from === this.props.from &&
+      agent === this.props.agent
+    ) return false
+
+    dispatch(fetchProducts({
+      to,
+      from,
+      location,
+      agent
+    }))
   }
 
   render() {
-    if(!this.state.productsLoaded) {
+    const { isFetchingProducts, products } = this.props
+
+    if(isFetchingProducts) {
       return <Loading />
     }
-
-    const products = this.state.products.filter( product => {
-      if(!product.images) return false
-      if(product.images.length === 0 ) return false
-      return true;
-    }).map( product => {
-      return {
-        image: product.images[0],
-        name: product.name,
-        code: product.code
-      }
-    })
 
     return <TileView products={products} />
   }
@@ -83,4 +63,30 @@ Products.contextTypes = {
   preFetchedData: React.PropTypes.object
 }
 
-module.exports = Products
+function mapStateToProps(state, ownProps) {
+  const {
+    isFetchingProducts,
+    products,
+  } = state.availability.products || {
+    isFetchingProducts: false,
+    products: []
+  }
+
+  const {
+    to,
+    from,
+    location,
+    agent
+  } = ownProps.location.query
+
+  return {
+    products,
+    isFetchingProducts,
+    to,
+    from,
+    location,
+    agent
+  }
+}
+
+export default connect(mapStateToProps)(Products)

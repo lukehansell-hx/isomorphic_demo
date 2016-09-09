@@ -1,14 +1,16 @@
-const React = require('react');
-const { renderToString } = require('react-dom/server');
-const { match, RouterContext } = require('react-router');
-const routes = require('./routes');
-const path = require('path');
+const React = require('react')
+const { renderToString } = require('react-dom/server')
+const { match, RouterContext } = require('react-router')
+const path = require('path')
+const { Provider } = require('react-redux')
 
-const express = require('express');
+const express = require('express')
 
-const PreFetchContext = require('./shared/container/PreFetchContext');
+const routes = require('./routes')
 
-const app = module.exports = express();
+import configureStore from './configureStore'
+
+const app = module.exports = express()
 
 app.use(express.static(path.join(__dirname, '../public'), {
   index: false
@@ -31,29 +33,22 @@ app.get('*', function(req, res){
       res.redirect(redirect.pathname + redirect.search)
     } else if (props) {
       // if we got props then we matched a route and can render
-
-      const dataFetchingMethods = props.components.map(component =>
-        component.fetchData ?
-        component.fetchData(props.location.query) :
-        new Promise(resolve => resolve()))
-
-      Promise.all(dataFetchingMethods).then( data => {
-        const contextData = {};
-        data.forEach( (a, index) => {
-          contextData[props.components[index].name || index] = a
-        })
-        const content = renderToString(
-          <PreFetchContext {...contextData}>
-            <RouterContext {...props}/>
-          </PreFetchContext>
-        )
-        res.render('index', {
-          content,
-          data: JSON.stringify(contextData)
-         });
-      }, err => {
-        console.log(err)
+      console.log(1)
+      const store = configureStore()
+      console.log(2)
+      const content = renderToString(
+        <Provider store={store}>
+          <RouterContext {...props}/>
+        </Provider>
+      )
+      console.log(3)
+      const preloadedState = store.getState()
+      console.log(4)
+      res.render('index', {
+        content,
+        data: JSON.stringify(preloadedState)
       });
+      console.log(5)
 
     } else {
       // no errors, no redirect, we just didn't match anything
@@ -63,9 +58,9 @@ app.get('*', function(req, res){
 });
 
 const buildHTML = function(content) {
-  return htmlTemplate.replace(/<!-- placeholder -->/, content);
+  return htmlTemplate.replace(/<!-- placeholder -->/, content)
 }
 
 app.listen(8080, () => {
-  console.log('server listening on port 8080');
-});
+  console.log('server listening on port 8080')
+})
