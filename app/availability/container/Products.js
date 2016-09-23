@@ -46,7 +46,12 @@ class Products extends React.Component {
   }
 
   render() {
-    const { isFetchingProducts, products, locationMeta } = this.props
+    const {
+      isFetchingProducts,
+      products,
+      locationMeta,
+      children
+    } = this.props
 
     if(isFetchingProducts) {
       return <Loading />
@@ -57,14 +62,12 @@ class Products extends React.Component {
         <AvailabilityHeader
           name={locationMeta.name}
           info={locationMeta.info}/>
-        <TileView products={products} />
+        <TileView products={products}>
+          {children}
+        </TileView>
       </div>
     )
   }
-}
-
-Products.contextTypes = {
-  preFetchedData: React.PropTypes.object
 }
 
 Products.mapStateToProps = (state = {
@@ -104,4 +107,4 @@ Products.mapStateToProps = (state = {
   }
 }
 
-export default connect(Products.mapStateToProps)(Products)
+module.exports = connect(Products.mapStateToProps)(Products)

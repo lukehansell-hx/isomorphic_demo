@@ -1,20 +1,21 @@
 const React = require('react')
-const { Tile } = require('@holidayextras/ui-toolkit')
+const CarparkTile = require('./CarparkTile');
+const AdvertTile = require('./AdvertTile');
 
 module.exports = ({
-  products
+  products,
+  children
 }, context) => (
-  <ul className="product-container">
-    {products.map(({
-      image,
-      code,
-      name
-    }) => (
-      <li key={code} className="product carpark">
-        <Tile image={image}>
-          <h4>{name}</h4>
-        </Tile>
-      </li>
-    ))}
-  </ul>
+  <div>
+    {children}
+    <ul className="product-container">
+      {products.map( product => (
+        <li key={product.code} className="product">
+          {product.type === 'carpark' && <CarparkTile {...product} />}
+          {product.type === 'advert' && <AdvertTile {...product} />}
+        </li>
+      ))}
+    </ul>
+  </div>
+
 )

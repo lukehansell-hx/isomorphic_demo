@@ -37,7 +37,7 @@ app.get('*', function(req, res){
       const store = configureStore()
 
       const dataFetchingMethods = props.components.map( component => {
-        if(!component.fetchData && !component.mapStateToProps) return
+        if(!component.fetchData || !component.mapStateToProps) return Promise.resolve()
         return component.fetchData(store.dispatch, component.mapStateToProps(store.getState(), props))
       })
 

@@ -28,10 +28,21 @@ export default function products(state = {
           info: action.searchMeta.location.regional_hotel_info
         },
         products: action.products.map(product => {
+          const type = ( product.type === 'carpark' ) ? 'carpark' : 'advert'
           return {
+            type,
             image: product.images[0] || null,
             name: product.name,
-            code: product.code
+            code: product.code,
+            address: product.address,
+            info: product.info_block,
+            price: `${action.searchMeta.currency}${(product.price/100).toFixed(2)}`,
+            links: {
+              info: `/carparks/${product.code}/info?from=${action.searchProps.from}&to=${action.searchProps.to}&location=${action.searchProps.location}`,
+              index: `/carparks?from=${action.searchProps.from}&to=${action.searchProps.to}&location=${action.searchProps.location}`
+            },
+            transfers: product.transfers_summary,
+            reviews: product.score
           }
         })
       })
