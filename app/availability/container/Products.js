@@ -50,6 +50,7 @@ class Products extends React.Component {
       isFetchingProducts,
       products,
       locationMeta,
+      editItinerary,
       children
     } = this.props
 
@@ -61,7 +62,8 @@ class Products extends React.Component {
       <div className="container">
         <AvailabilityHeader
           name={locationMeta.name}
-          info={locationMeta.info}/>
+          info={locationMeta.info}
+          editItinerary={editItinerary}/>
         <TileView products={products}>
           {children}
         </TileView>
@@ -92,7 +94,8 @@ Products.mapStateToProps = (state = {
     to,
     from,
     agent,
-    location
+    location,
+    editItinerary = false
   } = ownProps.location.query
 
   return {
@@ -103,7 +106,8 @@ Products.mapStateToProps = (state = {
     to,
     from,
     location,
-    agent
+    agent,
+    editItinerary
   }
 }
 
