@@ -33,23 +33,29 @@ app.get('*', function(req, res){
       res.redirect(redirect.pathname + redirect.search)
     } else if (props) {
       // if we got props then we matched a route and can render
-      console.log(1)
-      const store = configureStore()
-      console.log(2)
-      const content = renderToString(
-        <Provider store={store}>
-          <RouterContext {...props}/>
-        </Provider>
-      )
-      console.log(3)
-      const preloadedState = store.getState()
-      console.log(4)
-      res.render('index', {
-        content,
-        data: JSON.stringify(preloadedState)
-      });
-      console.log(5)
 
+      const store = configureStore()
+
+      const dataFetchingMethods = props.components.map( component => {
+        if(!component.fetchData && !component.mapStateToProps) return
+        return component.fetchData(store.dispatch, component.mapStateToProps(store.getState(), props))
+      })
+
+      Promise.all(dataFetchingMethods)
+      .then(() => {
+        const content = renderToString(
+          <Provider store={store}>
+            <RouterContext {...props}/>
+          </Provider>
+        )
+
+        const preloadedState = store.getState()
+
+        res.render('index', {
+          content,
+          data: JSON.stringify(preloadedState)
+        });
+      })
     } else {
       // no errors, no redirect, we just didn't match anything
       res.status(404).send('Not Found')

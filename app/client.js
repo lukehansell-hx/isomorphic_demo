@@ -14,7 +14,6 @@ render((
   <Provider store={store}>
     <Router routes={routes} history={browserHistory} />
   </Provider>
-
 ),
   document.getElementById('root')
 );

@@ -8,54 +8,58 @@ const _ = {
 import { connect } from 'react-redux'
 import { fetchProducts } from '../action/products'
 
-const Loading = require('../../shared/presentation/Loading');
-const TileView = require('../presentation/TileView');
+const Loading = require('../../shared/presentation/Loading')
+const TileView = require('../presentation/TileView')
+const AvailabilityHeader = require('../presentation/AvailabilityHeader')
 
 const TOKEN = 'ef008a98-9434-11e1-af41-123143040224'
 
 class Products extends React.Component {
 
-  constructor(props, context) {
-    super(props, context)
+  static fetchData(dispatch, {location, to, from, agent}) {
+    return dispatch(fetchProducts({
+      to,
+      from,
+      location,
+      agent
+    }))
   }
 
   componentWillMount() {
-    const { dispatch, location, to, from, agent} = this.props
-
-    dispatch(fetchProducts({
-      to,
-      from,
-      location,
-      agent
-    }))
+    this.loadData(this.props)
   }
 
   componentWillReceiveProps(nextProps) {
-    const { dispatch, location, to, from, agent} = nextProps
+    this.loadData(nextProps)
+  }
 
+  loadData(props) {
+    const { dispatch, to, from, agent, location, searchProps } = props
     if(
-      location === this.props.location &&
-      to === this.props.to &&
-      from === this.props.from &&
-      agent === this.props.agent
+      location === searchProps.location &&
+      to === searchProps.to &&
+      from === searchProps.from &&
+      agent === searchProps.agent
     ) return false
 
-    dispatch(fetchProducts({
-      to,
-      from,
-      location,
-      agent
-    }))
+    Products.fetchData(dispatch, props)
   }
 
   render() {
-    const { isFetchingProducts, products } = this.props
+    const { isFetchingProducts, products, locationMeta } = this.props
 
     if(isFetchingProducts) {
       return <Loading />
     }
 
-    return <TileView products={products} />
+    return (
+      <div className="container">
+        <AvailabilityHeader
+          name={locationMeta.name}
+          info={locationMeta.info}/>
+        <TileView products={products} />
+      </div>
+    )
   }
 }
 
@@ -63,25 +67,36 @@ Products.contextTypes = {
   preFetchedData: React.PropTypes.object
 }
 
-function mapStateToProps(state, ownProps) {
+Products.mapStateToProps = (state = {
+  availability: {},
+}, ownProps) => {
   const {
     isFetchingProducts,
     products,
+    searchProps,
+    locationMeta
   } = state.availability.products || {
     isFetchingProducts: false,
-    products: []
+    products: [],
+    searchProps: {},
+    locationMeta: {
+      name: '',
+      info: ''
+    }
   }
 
   const {
     to,
     from,
-    location,
-    agent
+    agent,
+    location
   } = ownProps.location.query
 
   return {
     products,
     isFetchingProducts,
+    searchProps,
+    locationMeta,
     to,
     from,
     location,
@@ -89,4 +104,4 @@ function mapStateToProps(state, ownProps) {
   }
 }
 
-export default connect(mapStateToProps)(Products)
+export default connect(Products.mapStateToProps)(Products)
