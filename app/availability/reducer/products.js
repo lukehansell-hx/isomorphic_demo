@@ -38,8 +38,8 @@ export default function products(state = {
             info: product.info_block,
             price: `${action.searchMeta.currency}${(product.price/100).toFixed(2)}`,
             links: {
-              info: `/carparks/${product.code}/info?from=${action.searchProps.from}&to=${action.searchProps.to}&location=${action.searchProps.location}`,
-              index: `/carparks?from=${action.searchProps.from}&to=${action.searchProps.to}&location=${action.searchProps.location}`
+              info: `/carparks/${product.code}/info?from=${action.searchProps.from}&to=${action.searchProps.to}&location=${action.searchProps.location}&agent=${action.searchProps.agent}`,
+              index: `/carparks?from=${action.searchProps.from}&to=${action.searchProps.to}&location=${action.searchProps.location}&agent=${action.searchProps.agent}`
             },
             transfers: product.transfers_summary,
             reviews: product.score
