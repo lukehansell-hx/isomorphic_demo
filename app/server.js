@@ -26,10 +26,8 @@ app.get('*', function(req, res){
     if (err) {
       // there was an error somewhere during route matching
       res.status(500).send(err.message)
-      console.log(err)
+      console.log('Error:', err)
     } else if (redirect) {
-      // we haven't talked about `onEnter` hooks on routes, but before a
-      // route is entered, it can redirect. Here we handle on the server.
       res.redirect(redirect.pathname + redirect.search)
     } else if (props) {
       // if we got props then we matched a route and can render
@@ -62,10 +60,6 @@ app.get('*', function(req, res){
     }
   });
 });
-
-const buildHTML = function(content) {
-  return htmlTemplate.replace(/<!-- placeholder -->/, content)
-}
 
 app.listen(8080, () => {
   console.log('server listening on port 8080')

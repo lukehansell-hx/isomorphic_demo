@@ -3,6 +3,7 @@ const React = require('react')
 const { Button } = require('react-bootstrap')
 
 module.exports = ({
+  agent,
   from,
   to,
   location,
@@ -27,6 +28,7 @@ module.exports = ({
         &nbsp;until&nbsp;
         <input type="date" value={to} name="to" onChange={onChange}/>.&nbsp;
         <input type="hidden" value={location} name="location"/>
+        <input type="hidden" value={agent} name="agent" />
         <Button bsSize="xsmall" bsStyle="primary" type="submit">Search</Button>
       </form>
     )}

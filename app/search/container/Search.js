@@ -27,6 +27,7 @@ class Search extends Component {
         from={this.state.from}
         to={this.state.to}
         location={this.state.location}
+        agent="WEB1"
         onChange={(e) => this.handleOnChange(e)}
         onSubmit={(e) => this.handleSubmit(e)}
         action={this.submitPath}

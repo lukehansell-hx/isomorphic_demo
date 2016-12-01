@@ -19,11 +19,13 @@ class EditableItinerary extends Component {
   }
 
   render() {
+    const { agent } = this.props
     const { editing, from, to } = this.state
 
     return <EditiableItineraryComponent
       from={from}
       to={to}
+      agent={agent}
       location={this.props.location}
       editing={editing}
       onChange={(e) => this.handleChange(e)}

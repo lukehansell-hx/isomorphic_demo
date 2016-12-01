@@ -15,6 +15,7 @@ const SearchForm = ({
   to,
   from,
   location,
+  agent
 }) => (
   <form action={action} method="GET" onSubmit={onSubmit}>
     <FormGroup>
@@ -51,6 +52,7 @@ const SearchForm = ({
         </select>
       </Col>
     </FormGroup>
+    <input type="hidden" name="agent" value={agent} />
     <Col sm={10} smOffset={2}>
       <Button type="submit" block bsStyle="primary">Search</Button>
     </Col>
