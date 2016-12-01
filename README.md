@@ -11,7 +11,7 @@ required to render an availability page.
 `npm install` as always to get the dependencies required
 2) Starting the app
 `npm start` will run the client side app. Running it with `NODE_ENV=production` will run the server side with client side app.
-`npm start:prod:dev` uses nodemon to restart the server when changes are made for easier development
+`npm run start:prod:dev` uses nodemon to restart the server when changes are made for easier development
 
 then
 
